@@ -1,6 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     const nameModal = document.getElementById('nameModal');
+    const okButton = document.querySelector('.modal-content button:nth-child(3)'); // Selects the OK button
+    const cancelButton = document.querySelector('.modal-content .cancel-button');
+
+    // Ensure the modal is initially shown
     nameModal.style.display = "block";
+
+    if (okButton) {
+        okButton.addEventListener('click', function() {
+            getNameAndProceed();
+            nameModal.style.display = "none"; // Ensure it's hidden after processing
+        });
+    } else {
+        console.error("OK button not found in the modal.");
+    }
+
+    if (cancelButton) {
+        cancelButton.addEventListener('click', function() {
+            cancelNameInput();
+            nameModal.style.display = "none"; // Ensure it's hidden after processing
+        });
+    } else {
+        console.error("Cancel button not found in the modal.");
+    }
 });
 
 let valentineName = "Nono"; // Default name
@@ -8,7 +30,6 @@ let valentineName = "Nono"; // Default name
 function getNameAndProceed() {
     const nameInput = document.getElementById('nameInput');
     const valentineQuestionElement = document.getElementById('valentineQuestion');
-    const nameModal = document.getElementById('nameModal');
     valentineName = nameInput.value.trim();
     if (!valentineName) {
         valentineName = "Nono"; // Keep default if nothing entered
@@ -26,12 +47,10 @@ function getNameAndProceed() {
         "Just kidding, say yes please! ❤️",
         "Your trapped until you say yes!!"
     ];
-    nameModal.style.display = "none";
 }
 
 function cancelNameInput() {
     const valentineQuestionElement = document.getElementById('valentineQuestion');
-    const nameModal = document.getElementById('nameModal');
     valentineQuestionElement.textContent = `Nono, Will you be my Valentine❤️?`; // Use default name
     messages = [
         `I knew you'd tap No, Nono !`,
@@ -44,7 +63,6 @@ function cancelNameInput() {
         "Just kidding, say yes please! ❤️",
         "Your trapped until you say yes!!"
     ];
-    nameModal.style.display = "none";
 }
 
 const messages = [
@@ -72,7 +90,6 @@ function handleNoClick() {
     const yesButton = document.querySelector('.yes-button');
     const currentYesSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentYesSize * 1.5}px`;
-
 
     if (currentMessage === "Your trapped until you say yes!!") {
         noButton.remove();
