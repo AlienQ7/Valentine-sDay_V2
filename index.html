@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+    <style> /* Inline styles for the modal - ideally in styles.css */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .modal-content input[type=text] {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        .modal-content button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        .modal-content .cancel-button {
+            background-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="valentineQuestion"></h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+             <div class="no-message-container"></div>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media4.giphy.com/media/wNk71OcVtOPncxNHVT/giphy.gif?cid=6c09b952cf8xiqyx6cild3grg8rypf45m1xf6sar7gh074fz&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" alt="Cute GIF">
+        </div>
+
+        <div id="nameModal" class="modal">
+            <div class="modal-content">
+                <label for="nameInput">Please enter your name:</label>
+                <input type="text" id="nameInput">
+                <button onclick="getNameAndProceed()">OK</button>
+                <button class="cancel-button" onclick="cancelNameInput()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
