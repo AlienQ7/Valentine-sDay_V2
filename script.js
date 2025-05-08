@@ -26,7 +26,7 @@ function getNameAndProceed() {
         "Just kidding, say yes please! ❤️",
         "Your trapped until you say yes!!"
     ];
-    nameModal.style.display = "none"; 
+    nameModal.style.display = "none";
 }
 
 function cancelNameInput() {
@@ -73,7 +73,7 @@ function handleNoClick() {
     const currentYesSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentYesSize * 1.5}px`;
 
-    
+
     if (currentMessage === "Your trapped until you say yes!!") {
         noButton.remove();
     }
